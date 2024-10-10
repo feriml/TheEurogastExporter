@@ -7,23 +7,26 @@ public class App {
     {
         //zu verarbeitende Artikelliste kommt aus untenstehender Hilfsmethode:
         ArrayList<Artikel> al = artikellisteAusDBDummy();
+        Export exporter;
 
-        //Je nach Kommandozeilenparameter sollen verschiedene Exporte durchgef�hrt werden.
-        //In Eclipse k�nnen diese Paramter gesetzt werden �ber (noch ist keiner gesetzt):
-        //�ber Run->Run Configurations -> Arguments -> Programm Arguments
+        //Je nach Kommandozeilenparameter sollen verschiedene Exporte durchgeführt werden.
+        //In Eclipse können diese Paramter gesetzt werden über (noch ist keiner gesetzt):
+        //Über Run->Run Configurations -> Arguments -> Programm Arguments
         if(args.length>0)
         {
             String parameter = args[0];
             switch(parameter)
             {
                 case "CSV":
-                    //CSV-Export durchf�hren
+
                     break;
                 case "JSON":
-                    //JSON-Export durchf�hren
+
+                    exporter = new JSON(al);
+                    exporter.export();
                     break;
                 default:
-                    //CSV-Export durchf�hren
+                    //CSV-Export durchführen
                     break;
             }
         } else //kein Parameter, dann CSV-Export (Standard)
