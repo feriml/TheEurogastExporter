@@ -29,12 +29,14 @@ public class App {
                     exporter.export();
                     break;
                 default:
-                    //CSV-Export durchführen
+                    exporter = new CSV(al);
+                    exporter.export(); //CSV-Export durchführen
                     break;
             }
         } else //kein Parameter, dann CSV-Export (Standard)
         {
-            //CSV-Export
+            exporter = new CSV(al);
+            exporter.export(); //CSV-Export
         }
     }
 
