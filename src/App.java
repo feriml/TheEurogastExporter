@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
@@ -19,6 +20,8 @@ public class App {
             {
                 case "CSV":
 
+                    exporter = new CSV(al);
+                    exporter.export();
                     break;
                 case "JSON":
 
@@ -44,11 +47,11 @@ public class App {
      */
     public static ArrayList<Artikel> artikellisteAusDBDummy() {
         ArrayList<Artikel> liste = new ArrayList<>();
-        liste.add(new Artikel("1","Sekt",90.23,new GregorianCalendar(2019,3,4),24));
-        liste.add(new Artikel("2","Fanta",9.90,new GregorianCalendar(2019,11,1),23));
-        liste.add(new Artikel("3","Cola",9.90,new GregorianCalendar(2019,1,12),23));
-        liste.add(new Artikel("4","Beinschinken",12.23,new GregorianCalendar(2019,11,12),45));
-        liste.add(new Artikel("5","Speck",5.23,new GregorianCalendar(2018,2,3),45));
+        liste.add(new Artikel("1","Sekt",90.23, LocalDate.of(2019,3,4),24));
+        liste.add(new Artikel("2","Fanta",9.90,LocalDate.of(2019,11,1),23));
+        liste.add(new Artikel("3","Cola",9.90,LocalDate.of(2019,1,12),23));
+        liste.add(new Artikel("4","Beinschinken",12.23,LocalDate.of(2019,11,12),45));
+        liste.add(new Artikel("5","Speck",5.23,LocalDate.of(2018,2,3),45));
         return liste;
     }
 }
